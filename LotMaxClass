@@ -1,0 +1,97 @@
+public class LotMaxGame
+{
+    private String dateGame;
+    private int game[];
+    private static int amountOfNumbers = 8;
+
+    //CONSTRUCTORS
+    public LotMaxGame (String d, int n1, int n2, int n3, int n4, int n5, int n6, int n7, int n8)
+    {
+        this.dateGame = d;
+        this.game[0] = n1;
+        this.game[1] = n2;
+        this.game[2] = n3;
+        this.game[3] = n4;
+        this.game[4] = n5;
+        this.game[5] = n6;
+        this.game[6] = n7;
+        this.game[7] = n8;
+    }
+
+    public LotMaxGame(String input) // constructor that accepts a line from textfile
+    {
+        String d = "";
+        int i=0;
+
+
+        boolean firstRun = true;
+        int numbers[] = new int[8];
+
+        //splitting line every comma, first value is date (assigned to d), the rest assigned to an array
+        for (String singleValue: input.split(","))
+        {
+            if(firstRun)
+            {
+                d = singleValue;
+                firstRun =false;
+            }
+            else
+            {
+                numbers[i] = Integer.parseInt(singleValue);
+                i++;
+            }
+        }
+
+
+        //assigning values
+        this.dateGame = d;
+
+        game = new int[8];
+        this.game[0] = numbers[0];
+        this.game[1] = numbers[1];
+        this.game[2] = numbers[2];
+        this.game[3] = numbers[3];
+        this.game[4] = numbers[4];
+        this.game[5] = numbers[5];
+        this.game[6] = numbers[6];
+        this.game[7] = numbers[7];
+    }
+
+
+
+    //METHODS
+    public String toString()
+    {
+        return ("Date: " + dateGame + ", " + game[0]+ ", " + game[1]+ ", " + game[2]+ ", " + game[3]+ ", " + game[4]
+                + ", " + game[5]+ ", " + game[6]+ ", " + game[7]);
+    }
+
+
+    public String getDate()
+    {return dateGame;}
+
+    public int getN1()
+    {return game[0];}
+
+    public int getN2()
+    {return game[1];}
+
+    public int getN3()
+    {return game[2];}
+
+    public int getN4()
+    {return game[3];}
+
+    public int getN5()
+    {return game[4];}
+
+    public int getN6()
+    {return game[5];}
+
+    public int getN7()
+    {return game[6];}
+
+    public int getN8()
+    {return game[7];}
+
+}
